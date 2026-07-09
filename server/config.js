@@ -1,13 +1,14 @@
-const isHostedProduction = !!process.env.PORT;
+const isLocalDev = process.env.NODE_ENV === 'development'
+    || (process.platform === 'win32' && process.env.FORCE_PRODUCTION_DB !== '1');
 
 module.exports = {
     port: parseInt(process.env.PORT, 10) || 3000,
     host: process.env.HOST || '0.0.0.0',
     db: {
-        host: process.env.DB_HOST || 'localhost',
-        user: process.env.DB_USER || (isHostedProduction ? 'u741730784_cehmockuser' : 'root'),
-        password: process.env.DB_PASSWORD || (isHostedProduction ? 'CehMock!2026#Secure' : ''),
-        database: process.env.DB_NAME || (isHostedProduction ? 'u741730784_cehmockexam' : 'ceh_mock_exam'),
+        host: process.env.DB_HOST || (isLocalDev ? 'localhost' : '127.0.0.1'),
+        user: process.env.DB_USER || (isLocalDev ? 'root' : 'u741730784_cehmockuser'),
+        password: process.env.DB_PASSWORD || (isLocalDev ? '' : 'CehMock!2026#Secure'),
+        database: process.env.DB_NAME || (isLocalDev ? 'ceh_mock_exam' : 'u741730784_cehmockexam'),
         waitForConnections: true,
         connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT, 10) || 10
     },

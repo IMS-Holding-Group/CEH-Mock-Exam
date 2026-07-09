@@ -424,6 +424,7 @@ async function handleApi(req, res, pathname) {
 }
 
 async function startServer() {
+    console.log(`وضع قاعدة البيانات: ${config.db.user}@${config.db.host}/${config.db.database}`);
     await db.initializeDatabase();
 
     const server = http.createServer(async (req, res) => {
