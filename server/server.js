@@ -473,6 +473,6 @@ const server = http.createServer(async (req, res) => {
     });
 });
 
-server.listen(config.port, () => {
-    console.log(`خادم محاكي CEH يعمل على المنفذ ${config.port}`);
+server.listen(config.port, config.host, () => {
+    console.log(`خادم محاكي CEH يعمل على ${config.host}:${config.port}`);
 });

@@ -1,14 +1,15 @@
 module.exports = {
-    port: 3000,
+    port: parseInt(process.env.PORT, 10) || 3000,
+    host: process.env.HOST || '0.0.0.0',
     db: {
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'ceh_mock_exam',
+        host: process.env.DB_HOST || 'localhost',
+        user: process.env.DB_USER || 'root',
+        password: process.env.DB_PASSWORD || '',
+        database: process.env.DB_NAME || 'ceh_mock_exam',
         waitForConnections: true,
-        connectionLimit: 10
+        connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT, 10) || 10
     },
-    examDurationMinutes: 240,
-    eyeDeviationThreshold: 0.25,
-    eyeSuspiciousDurationMs: 1800
+    examDurationMinutes: parseInt(process.env.EXAM_DURATION_MINUTES, 10) || 240,
+    eyeDeviationThreshold: parseFloat(process.env.EYE_DEVIATION_THRESHOLD) || 0.25,
+    eyeSuspiciousDurationMs: parseInt(process.env.EYE_SUSPICIOUS_DURATION_MS, 10) || 1800
 };
