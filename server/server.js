@@ -423,56 +423,65 @@ async function handleApi(req, res, pathname) {
     }
 }
 
-const server = http.createServer(async (req, res) => {
-    const parsed = url.parse(req.url, true);
-    let pathname = decodeURIComponent(parsed.pathname);
+async function startServer() {
+    await db.initializeDatabase();
 
-    if (req.method === 'OPTIONS') {
-        res.writeHead(204, {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type'
-        });
-        res.end();
-        return;
-    }
+    const server = http.createServer(async (req, res) => {
+        const parsed = url.parse(req.url, true);
+        let pathname = decodeURIComponent(parsed.pathname);
 
-    if (pathname.startsWith('/api/')) {
-        await handleApi(req, res, pathname);
-        return;
-    }
+        if (req.method === 'OPTIONS') {
+            res.writeHead(204, {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            });
+            res.end();
+            return;
+        }
 
-    if (pathname.startsWith('/assets/')) {
-        const assetPath = path.join(assetsDir, pathname.replace('/assets/', ''));
-        if (!assetPath.startsWith(assetsDir)) {
+        if (pathname.startsWith('/api/')) {
+            await handleApi(req, res, pathname);
+            return;
+        }
+
+        if (pathname.startsWith('/assets/')) {
+            const assetPath = path.join(assetsDir, pathname.replace('/assets/', ''));
+            if (!assetPath.startsWith(assetsDir)) {
+                res.writeHead(403);
+                res.end();
+                return;
+            }
+            serveStatic(res, assetPath);
+            return;
+        }
+
+        if (pathname === '/') {
+            pathname = '/index.html';
+        }
+
+        const filePath = path.join(publicDir, pathname);
+        if (!filePath.startsWith(publicDir)) {
             res.writeHead(403);
             res.end();
             return;
         }
-        serveStatic(res, assetPath);
-        return;
-    }
 
-    if (pathname === '/') {
-        pathname = '/index.html';
-    }
-
-    const filePath = path.join(publicDir, pathname);
-    if (!filePath.startsWith(publicDir)) {
-        res.writeHead(403);
-        res.end();
-        return;
-    }
-
-    fs.access(filePath, fs.constants.F_OK, err => {
-        if (err) {
-            serveStatic(res, path.join(publicDir, 'index.html'));
-            return;
-        }
-        serveStatic(res, filePath);
+        fs.access(filePath, fs.constants.F_OK, err => {
+            if (err) {
+                serveStatic(res, path.join(publicDir, 'index.html'));
+                return;
+            }
+            serveStatic(res, filePath);
+        });
     });
-});
 
-server.listen(config.port, config.host, () => {
-    console.log(`خادم محاكي CEH يعمل على ${config.host}:${config.port}`);
+    server.listen(config.port, config.host, () => {
+        console.log(`خادم محاكي CEH يعمل على ${config.host}:${config.port}`);
+    });
+}
+
+startServer().catch(err => {
+    console.error('تعذر تهيئة قاعدة البيانات أو تشغيل الخادم:', err.message);
+    process.exit(1);
 });
