@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta name="author" content="منصة محاكاة CEH">
+    <meta name="description" content="صفحة اختبار CEH التدريبي مع المراقبة">
+    <title>جلسة الاختبار - محاكي CEH</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/exam.css">
+</head>
+<body class="exam-body" translate="no">
+    <header class="site-header">
+        <div class="logo">جلسة اختبار CEH</div>
+        <div id="traineeLabel" class="nav-link active">المتدربة</div>
+    </header>
+
+    <main class="page-wrap">
+        <div class="exam-layout">
+            <section class="exam-main" translate="no">
+                <div class="timer-box" id="timerBox">04:00:00</div>
+                <div class="question-header">
+                    <span class="question-number" id="questionNumber">سؤال 1</span>
+                    <span class="question-category" id="questionCategory">التصنيف</span>
+                </div>
+                <p class="question-text" id="questionText">جاري تحميل الأسئلة...</p>
+                <div id="optionsContainer"></div>
+                <div class="progress-dots" id="progressDots"></div>
+                <div class="question-nav">
+                    <button type="button" class="btn btn-secondary" id="prevBtn">السابق</button>
+                    <button type="button" class="btn btn-secondary" id="nextBtn">التالي</button>
+                    <button type="button" class="btn" id="submitBtn">تسليم الاختبار</button>
+                </div>
+            </section>
+
+            <aside class="exam-sidebar" translate="no">
+                <video id="cameraVideo" autoplay playsinline muted></video>
+                <canvas id="eyeCanvas" class="hidden-canvas"></canvas>
+                <div class="exam-meta">
+                    <span id="metaTrainee">المتدربة: -</span>
+                    <span id="metaProgress">التقدم: 0 / 0</span>
+                    <span id="metaMonitoring">المراقبة: جاري التهيئة</span>
+                </div>
+                <div class="monitoring-status active" id="cameraStatus">الكاميرا: نشطة</div>
+                <div class="tracking-debug">
+                    <div class="tracking-debug-title">مؤشر الرصد الحي</div>
+                    <div class="tracking-debug-status neutral" id="trackingDebugStatus">جاري المعايرة</div>
+                    <div class="tracking-debug-line" id="trackingDebugValue">الانحراف: -</div>
+                    <div class="tracking-debug-line" id="trackingDebugDetails">التفاصيل: -</div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <div class="pause-overlay" id="pauseOverlay">
+        <div class="pause-box">
+            <h2>تم إيقاف الاختبار مؤقتًا</h2>
+            <p id="pauseMessage">يجب إعادة تفعيل الكاميرا للمتابعة. الاختبار متوقف حتى تعود الكاميرا للعمل.</p>
+            <button type="button" class="btn" id="resumeCameraBtn">إعادة تفعيل الكاميرا</button>
+        </div>
+    </div>
+
+    <div class="alert-overlay" id="alertOverlay">
+        <div class="alert-box warning" id="alertBox">
+            <h3 id="alertTitle">تنبيه</h3>
+            <p id="alertMessage">رسالة التنبيه</p>
+            <button type="button" class="btn" id="alertCloseBtn">حسنًا</button>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/anti-copy.js"></script>
+    <script src="/js/anti-translate.js"></script>
+    <script src="/js/eye-tracker.js"></script>
+    <script src="/js/camera.js"></script>
+    <script src="/js/exam.js"></script>
+</body>
+</html>

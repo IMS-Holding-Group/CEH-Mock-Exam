@@ -1,0 +1,463 @@
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    src: url('/assets/fonts/IBMPlexSansArabic-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    src: url('/assets/fonts/IBMPlexSansArabic-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    src: url('/assets/fonts/IBMPlexSansArabic-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    font-size: 18px;
+    scroll-behavior: smooth
+}
+
+body {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    min-height: 100vh;
+    font: 400 1.05rem/1.7 'IBM Plex Sans Arabic', sans-serif;
+    color: #1a2332;
+    text-align: right;
+    background: #f4f6f9
+}
+
+h1, h2, h3, h4, .btn, .nav-link, .stat-value, .panel-title {
+    font-weight: 700
+}
+
+a {
+    color: #0d4f8b;
+    text-decoration: none;
+    transition: all 0.3s ease
+}
+
+a:hover {
+    color: #083a66
+}
+
+.site-header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 0 24px;
+    padding: 14px 28px;
+    border-bottom: 1px solid #d8dee8;
+    width: 100%;
+    font-size: 1.15rem;
+    color: #0d4f8b;
+    text-align: right;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(13, 79, 139, 0.06);
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100
+}
+
+.site-header .logo {
+    font-size: 1.35rem;
+    color: #0d4f8b
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+    align-items: center
+}
+
+.nav-link {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 18px;
+    border: 1px solid #c5d0de;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    color: #0d4f8b;
+    background: #fff;
+    transition: all 0.3s ease
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fff;
+    background: #0d4f8b;
+    border-color: #0d4f8b
+}
+
+.page-wrap {
+    display: block;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    width: 100%;
+    max-width: 1100px
+}
+
+.hero-block {
+    display: block;
+    margin: 0 0 28px;
+    padding: 28px 32px;
+    border: 1px solid #d8dee8;
+    border-radius: 12px;
+    background: #fff
+}
+
+.hero-block h1 {
+    margin: 0 0 12px;
+    font-size: 2rem;
+    color: #0d4f8b
+}
+
+.hero-block p {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: #3d4f63
+}
+
+.form-panel {
+    display: block;
+    margin: 0 0 24px;
+    padding: 24px 28px;
+    border: 1px solid #d8dee8;
+    border-radius: 12px;
+    background: #fff
+}
+
+.form-panel h2 {
+    margin: 0 0 18px;
+    font-size: 1.45rem;
+    color: #0d4f8b
+}
+
+.form-row {
+    display: block;
+    margin: 0 0 16px
+}
+
+.form-row label {
+    display: block;
+    margin: 0 0 6px;
+    font-size: 1rem;
+    color: #1a2332
+}
+
+.form-row input,
+.form-row textarea,
+.form-row select {
+    display: block;
+    margin: 0;
+    padding: 10px 14px;
+    border: 1px solid #c5d0de;
+    border-radius: 8px;
+    width: 100%;
+    font: 400 1rem/1.5 'IBM Plex Sans Arabic', sans-serif;
+    color: #1a2332;
+    background: #fff;
+    transition: all 0.3s ease
+}
+
+.form-row input:focus,
+.form-row textarea:focus,
+.form-row select:focus {
+    outline: none;
+    border-color: #0d4f8b;
+    box-shadow: 0 0 0 3px rgba(13, 79, 139, 0.12)
+}
+
+.form-row textarea {
+    min-height: 100px;
+    resize: vertical
+}
+
+.btn {
+    display: inline-block;
+    margin: 4px 0 4px 8px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 999px;
+    font: 700 1rem/1.4 'IBM Plex Sans Arabic', sans-serif;
+    color: #fff;
+    text-align: center;
+    background: #0d4f8b;
+    cursor: pointer;
+    transition: all 0.3s ease
+}
+
+.btn:hover {
+    background: #083a66
+}
+
+.btn-secondary {
+    color: #0d4f8b;
+    background: #e8eef5;
+    border: 1px solid #c5d0de
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background: #0d4f8b;
+    border-color: #0d4f8b
+}
+
+.btn-danger {
+    background: #b42318
+}
+
+.btn-danger:hover {
+    background: #8f1c13
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 0
+}
+
+.info-list {
+    display: block;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none
+}
+
+.info-list li {
+    display: block;
+    margin: 0 0 10px;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #3d4f63;
+    background: #f8fafc
+}
+
+.stats-grid {
+    display: grid;
+    margin: 20px 0;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+}
+
+.stat-box {
+    display: block;
+    margin: 0;
+    padding: 18px 20px;
+    border: 1px solid #d8dee8;
+    border-radius: 10px;
+    text-align: center;
+    background: #fff
+}
+
+.stat-box .stat-value {
+    display: block;
+    margin: 0 0 6px;
+    font-size: 1.8rem;
+    color: #0d4f8b
+}
+
+.stat-box .stat-label {
+    display: block;
+    font-size: 0.95rem;
+    color: #5a6b7d
+}
+
+.table-wrap {
+    display: block;
+    margin: 20px 0;
+    border: 1px solid #d8dee8;
+    border-radius: 10px;
+    overflow-x: auto;
+    background: #fff
+}
+
+.data-table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem
+}
+
+.data-table th,
+.data-table td {
+    margin: 0;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e8edf3;
+    text-align: right
+}
+
+.data-table th {
+    font-weight: 700;
+    color: #0d4f8b;
+    background: #f0f4f8
+}
+
+.data-table tr:last-child td {
+    border-bottom: none
+}
+
+.alert-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 20px;
+    background: rgba(10, 20, 35, 0.72);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999
+}
+
+.alert-overlay.show {
+    display: flex
+}
+
+.alert-box {
+    display: block;
+    margin: 0;
+    padding: 24px 28px;
+    border: 1px solid #f5c2c0;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 480px;
+    font-size: 1.05rem;
+    color: #1a2332;
+    text-align: center;
+    background: #fff
+}
+
+.alert-box h3 {
+    margin: 0 0 12px;
+    font-size: 1.3rem;
+    color: #b42318
+}
+
+.alert-box p {
+    margin: 0 0 16px;
+    color: #3d4f63
+}
+
+.alert-box.warning h3 {
+    color: #b54708
+}
+
+.tabs {
+    display: flex;
+    margin: 0 0 20px;
+    gap: 8px;
+    flex-wrap: wrap
+}
+
+.tab-btn {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 20px;
+    border: 1px solid #c5d0de;
+    border-radius: 999px;
+    font: 700 0.95rem/1.4 'IBM Plex Sans Arabic', sans-serif;
+    color: #0d4f8b;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease
+}
+
+.tab-btn.active {
+    color: #fff;
+    background: #0d4f8b;
+    border-color: #0d4f8b
+}
+
+.tab-panel {
+    display: none
+}
+
+.tab-panel.active {
+    display: block
+}
+
+.option-row {
+    display: flex;
+    margin: 0 0 10px;
+    padding: 10px 14px;
+    border: 1px solid #d8dee8;
+    border-radius: 8px;
+    align-items: center;
+    gap: 10px;
+    background: #fafbfc;
+    transition: all 0.3s ease
+}
+
+.option-row:hover {
+    border-color: #0d4f8b;
+    background: #f0f6fc
+}
+
+.option-row input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #0d4f8b
+}
+
+.empty-state {
+    display: block;
+    margin: 24px 0;
+    padding: 32px;
+    border: 1px dashed #c5d0de;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    color: #5a6b7d;
+    text-align: center;
+    background: #fafbfc
+}
+
+@media screen and (max-width: 767px) {
+    html {
+        font-size: 16px
+    }
+
+    .site-header {
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 12px
+    }
+
+    .page-wrap {
+        padding: 0 16px 32px
+    }
+
+    .hero-block {
+        padding: 20px
+    }
+
+    .hero-block h1 {
+        font-size: 1.6rem
+    }
+}

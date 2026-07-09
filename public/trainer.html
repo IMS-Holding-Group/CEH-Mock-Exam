@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta name="author" content="منصة محاكاة CEH">
+    <meta name="description" content="لوحة المدرب لإدارة الأسئلة ومراجعة الجلسات">
+    <title>لوحة المدرب - محاكي CEH</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body translate="no">
+    <header class="site-header">
+        <div class="logo">لوحة المدرب</div>
+        <nav class="nav-links">
+            <a href="/index.html" class="nav-link">الرئيسية</a>
+            <a href="/trainer.html" class="nav-link active">لوحة المدرب</a>
+        </nav>
+    </header>
+
+    <main class="page-wrap">
+        <section class="hero-block">
+            <h1>إدارة بنك الأسئلة ومراجعة الجلسات</h1>
+            <p>يمكن للمدرب إدخال الأسئلة يدويًا عبر النموذج أدناه، أو نسخها من أي مصدر مرجعي ولصقها في حقول الإدخال.</p>
+        </section>
+
+        <div class="tabs">
+            <button type="button" class="tab-btn active" data-tab="questionsTab">إدارة الأسئلة</button>
+            <button type="button" class="tab-btn" data-tab="sessionsTab">جلسات المتدربات</button>
+        </div>
+
+        <section class="tab-panel active" id="questionsTab">
+            <div class="form-panel">
+                <h2 id="questionFormTitle">إضافة سؤال جديد</h2>
+                <form id="questionForm">
+                    <input type="hidden" id="questionId" value="">
+                    <div class="form-row">
+                        <label for="qNumber">رقم السؤال</label>
+                        <input type="text" id="qNumber" placeholder="مثال: 15">
+                    </div>
+                    <div class="form-row">
+                        <label for="qCategory">التصنيف</label>
+                        <input type="text" id="qCategory" placeholder="مثال: Footprinting">
+                    </div>
+                    <div class="form-row">
+                        <label for="qText">نص السؤال</label>
+                        <textarea id="qText" required placeholder="اكتب نص السؤال هنا أو الصقه من مصدر مرجعي"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="optA">الخيار أ</label>
+                        <input type="text" id="optA" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="optB">الخيار ب</label>
+                        <input type="text" id="optB" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="optC">الخيار ج</label>
+                        <input type="text" id="optC" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="optD">الخيار د</label>
+                        <input type="text" id="optD" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="correctOpt">الإجابة الصحيحة</label>
+                        <select id="correctOpt" required>
+                            <option value="A">أ</option>
+                            <option value="B">ب</option>
+                            <option value="C">ج</option>
+                            <option value="D">د</option>
+                        </select>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn" id="saveQuestionBtn">حفظ السؤال</button>
+                        <button type="button" class="btn btn-secondary" id="resetQuestionBtn">إعادة تعيين</button>
+                    </div>
+                </form>
+            </div>
+
+            <section class="form-panel">
+                <h2>بنك الأسئلة</h2>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>الرقم</th>
+                                <th>التصنيف</th>
+                                <th>نص السؤال</th>
+                                <th>الإجابة</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="questionsTableBody">
+                            <tr><td colspan="5">جاري التحميل...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+
+        <section class="tab-panel" id="sessionsTab">
+            <section class="form-panel">
+                <h2>سجل جلسات الاختبار</h2>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>المتدربة</th>
+                                <th>تاريخ البدء</th>
+                                <th>المدة</th>
+                                <th>الدرجة</th>
+                                <th>حركة العين</th>
+                                <th>النسخ</th>
+                                <th>الكاميرا</th>
+                                <th>الترجمة</th>
+                                <th>الحالة</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sessionsTableBody">
+                            <tr><td colspan="10">جاري التحميل...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/trainer.js"></script>
+</body>
+</html>

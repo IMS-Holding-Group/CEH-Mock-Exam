@@ -1,0 +1,12 @@
+{
+    "name": "ceh-mock-exam",
+    "version": "1.0.0",
+    "description": "محاكي اختبار CEH التدريبي",
+    "main": "server/server.js",
+    "scripts": {
+        "start": "node server/server.js"
+    },
+    "dependencies": {
+        "mysql2": "^3.11.5"
+    }
+}

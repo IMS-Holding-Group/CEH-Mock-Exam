@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta name="author" content="منصة محاكاة CEH">
+    <meta name="description" content="تقرير نتائج اختبار CEH التدريبي">
+    <title>تقرير النتائج - محاكي CEH</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body translate="no">
+    <header class="site-header">
+        <div class="logo">تقرير النتائج</div>
+        <nav class="nav-links">
+            <a href="/index.html" class="nav-link">الرئيسية</a>
+            <a href="/trainer.html" class="nav-link">لوحة المدرب</a>
+        </nav>
+    </header>
+
+    <main class="page-wrap">
+        <section class="hero-block">
+            <h1>تقرير تحليل جلسة الاختبار</h1>
+            <p id="resultSummary">جاري تحميل التقرير...</p>
+        </section>
+
+        <div class="stats-grid" id="statsGrid"></div>
+
+        <section class="form-panel">
+            <h2>تفاصيل المراقبة</h2>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>نوع الحدث</th>
+                            <th>الوقت</th>
+                            <th>التفاصيل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTableBody">
+                        <tr><td colspan="3">لا توجد أحداث مسجلة</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn-group">
+                <a href="/index.html" class="btn">العودة للرئيسية</a>
+                <a href="/trainer.html" class="btn btn-secondary">لوحة المدرب</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/results.js"></script>
+</body>
+</html>

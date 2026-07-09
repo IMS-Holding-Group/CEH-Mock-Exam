@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta name="author" content="منصة محاكاة CEH">
+    <meta name="description" content="منصة تدريبية لمحاكاة اختبار شهادة CEH للمتدربات">
+    <title>محاكي اختبار CEH التدريبي</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body translate="no">
+    <header class="site-header">
+        <div class="logo">محاكي اختبار CEH</div>
+        <nav class="nav-links">
+            <a href="/index.html" class="nav-link active">الرئيسية</a>
+            <a href="/trainer.html" class="nav-link">لوحة المدرب</a>
+        </nav>
+    </header>
+
+    <main class="page-wrap">
+        <section class="hero-block">
+            <h1>منصة محاكاة اختبار CEH التدريبية</h1>
+            <p>منصة مصممة لتدريب المتدربات على أجواء الاختبار الحقيقي لشهادة Certified Ethical Hacker قبل خوض الاختبار الفعلي.</p>
+            <p>يتم مراقبة الجلسة عبر الكاميرا ورصد محاولات النسخ ومحاولات الترجمة وحركة العين المشبوهة، ثم يُعرض تقرير تحليلي شامل بعد انتهاء الاختبار.</p>
+        </section>
+
+        <section class="form-panel">
+            <h2>بدء جلسة اختبار جديدة</h2>
+            <form id="startForm">
+                <div class="form-row">
+                    <label for="traineeName">اسم المتدربة</label>
+                    <input type="text" id="traineeName" name="traineeName" required placeholder="أدخلي اسمك الكامل">
+                </div>
+                <ul class="info-list">
+                    <li>يجب تفعيل الكاميرا قبل بدء الاختبار، ولن يُسمح بالمتابعة بدونها.</li>
+                    <li>النسخ وتحديد النص والزر الأيمن معطّلة أثناء الاختبار.</li>
+                    <li>يُرصد أي انحراف للنظر عن الشاشة لفترة تتجاوز الحد المحدد.</li>
+                    <li>عند انتهاء الوقت المحدد يُسلَّم الاختبار تلقائيًا.</li>
+                </ul>
+                <div class="btn-group">
+                    <button type="submit" class="btn">بدء الاختبار</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
